@@ -1,0 +1,19 @@
+name: mysql
+
+services:
+  mysql-database:
+    image: mysql:9.1.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'changeme123'
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - mysql-database-volume:/var/lib/mysql
+volumes:
+  mysql-database-volume:
